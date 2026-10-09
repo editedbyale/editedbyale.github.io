@@ -35,27 +35,32 @@
         html{scroll-behavior:smooth}
         body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
 
-        /* INTRO ANIMATION */
+        /* NEW CINEMATIC INTRO ANIMATION */
         .intro-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: #050505; z-index: 9999;
             display: flex; justify-content: center; align-items: center;
-            animation: hideOverlay 0.1s linear 2.5s forwards;
+            animation: fadeOutOverlay 0.6s ease-in-out 2.2s forwards;
+            pointer-events: none;
         }
         .intro-logo {
-            font-size: 3.5rem; font-weight: 700; position: absolute;
-            animation: moveToNav 2s cubic-bezier(0.65, 0, 0.35, 1) 0.5s forwards;
+            font-size: 4rem; font-weight: 700; position: absolute; left: 50%;
+            animation: dropSmackFade 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
         .intro-logo span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        @keyframes moveToNav {
-            0% { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            100% { top: 26px; left: 40px; transform: translate(0, 0) scale(0.37); opacity: 0; }
+        @keyframes dropSmackFade {
+            0% { top: -20%; opacity: 0; transform: translateX(-50%) scale(0.8); }
+            50% { top: 50%; opacity: 1; transform: translateX(-50%) translateY(-50%) scale(1.15); } /* The SMACK */
+            70% { top: 50%; opacity: 1; transform: translateX(-50%) translateY(-50%) scale(1); } /* Settle */
+            85% { top: 50%; opacity: 1; transform: translateX(-50%) translateY(-50%) scale(1); } /* Hold */
+            100% { top: 50%; opacity: 0; transform: translateX(-50%) translateY(-50%) scale(1); } /* Fade */
         }
-        @keyframes hideOverlay { to { opacity: 0; visibility: hidden; pointer-events: none; } }
-        @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes fadeOutOverlay { to { opacity: 0; visibility: hidden; } }
 
         nav{position:fixed;top:0;left:0;right:0;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;transition:.3s;background:rgba(5,5,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border); opacity: 0; animation: fadeIn 0.5s ease-out 2s forwards;}
+        @keyframes fadeIn { to { opacity: 1; } }
+        
         .logo{font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--white)}
         .logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .nav-links{display:flex;list-style:none;gap:28px;align-items:center}
@@ -152,10 +157,7 @@
             .hero{padding:120px 22px 60px}
             .process-grid{grid-template-columns:repeat(2,1fr)}
             .contact-grid{grid-template-columns:1fr}
-            @keyframes moveToNav {
-                0% { top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1); opacity: 1; }
-                100% { top: 24px; left: 22px; transform: translate(0, 0) scale(0.37); opacity: 0; }
-            }
+            .intro-logo { font-size: 2.5rem; }
         }
         @media(max-width:560px){
             .hero h1{font-size:1.75rem}
@@ -213,12 +215,13 @@
             <p class="sec-sub">Scroll-stopping content engineered for retention.</p>
         </div>
         <div class="port-grid">
-            <!-- 1. FITNESS (COMMENTS TAG REMOVED) -->
+            <!-- 1. FITNESS (TAG ADDED) -->
             <a href="https://www.instagram.com/reel/DWtklYhEoT5/" target="_blank" class="port-card">
                 <div class="port-thumb">
                     <video autoplay muted loop playsinline preload="metadata" poster="video1.jpg">
                         <source src="video1.mp4" type="video/mp4">
                     </video>
+                    <div class="views-tag" style="background:var(--grad)">Fitness</div>
                 </div>
                 <div class="port-info">
                     <div class="port-type">High-Engagement</div>
