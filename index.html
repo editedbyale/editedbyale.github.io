@@ -35,67 +35,7 @@
         html{scroll-behavior:smooth}
         body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
 
-        /* NEW CINEMATIC INTRO WITH SMOKE */
-        .intro-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #050505; z-index: 9999;
-            display: flex; justify-content: center; align-items: center;
-            animation: fadeOutOverlay 0.8s ease-in-out 2.5s forwards;
-            pointer-events: none;
-        }
-        
-        .intro-logo {
-            font-size: 4rem; font-weight: 700; position: absolute; left: 50%;
-            animation: dropIn 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .intro-logo span { 
-            background: var(--grad); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            position: relative;
-            z-index: 2;
-        }
-
-        /* SMOKE EFFECT (Pseudo-elements) */
-        .intro-logo::before, .intro-logo::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120%;
-            height: 40px;
-            background: radial-gradient(ellipse at center, rgba(139,92,246,0.4) 0%, rgba(6,182,212,0.2) 40%, transparent 70%);
-            filter: blur(15px);
-            opacity: 0;
-            z-index: 1;
-            animation: smokeRise 2.5s ease-out forwards;
-        }
-        .intro-logo::after {
-            width: 80%;
-            height: 30px;
-            background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 60%);
-            animation-delay: 0.1s;
-        }
-
-        @keyframes dropIn {
-            0% { top: 25%; opacity: 0; transform: translate(-50%, 0) scale(0.85); }
-            60% { top: 50%; opacity: 1; transform: translate(-50%, -50%) scale(1.05); } /* Slowly scales up and lands */
-            80% { top: 50%; opacity: 1; transform: translate(-50%, -50%) scale(1); } /* Settles */
-            100% { top: 50%; opacity: 0; transform: translate(-50%, -50%) scale(1); } /* Fades out */
-        }
-
-        @keyframes smokeRise {
-            0%, 50% { opacity: 0; transform: translate(-50%, 20px) scale(0.5); } /* Hidden until text lands */
-            65% { opacity: 0.8; transform: translate(-50%, -10px) scale(1.2); } /* Puffs up on impact */
-            100% { opacity: 0; transform: translate(-50%, -50px) scale(1.8); } /* Rises and dissipates */
-        }
-
-        @keyframes fadeOutOverlay { to { opacity: 0; visibility: hidden; } }
-        @keyframes fadeIn { to { opacity: 1; } }
-
-        nav{position:fixed;top:0;left:0;right:0;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;transition:.3s;background:rgba(5,5,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border); opacity: 0; animation: fadeIn 0.5s ease-out 2.2s forwards;}
-        
+        nav{position:fixed;top:0;left:0;right:0;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;transition:.3s;background:rgba(5,5,5,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
         .logo{font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--white)}
         .logo span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
         .nav-links{display:flex;list-style:none;gap:28px;align-items:center}
@@ -109,8 +49,8 @@
         .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(139,92,246,.12),transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(6,182,212,.08),transparent 55%);pointer-events:none; animation: pulseGlow 8s infinite alternate;}
         @keyframes pulseGlow { 0% { opacity: 0.6; transform: scale(1); } 100% { opacity: 1; transform: scale(1.1); } }
         
-        .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center; opacity: 0; animation: fadeUp 1s ease-out 2.5s forwards;}
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center; animation: fadeUp 0.8s ease-out forwards;}
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
         .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.2);border-radius:50px;font-size:.76rem;font-weight:500;color:var(--accent);margin-bottom:26px}
         .dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:blink 2s infinite}
@@ -192,7 +132,6 @@
             .hero{padding:120px 22px 60px}
             .process-grid{grid-template-columns:repeat(2,1fr)}
             .contact-grid{grid-template-columns:1fr}
-            .intro-logo { font-size: 2.5rem; }
         }
         @media(max-width:560px){
             .hero h1{font-size:1.75rem}
@@ -202,11 +141,6 @@
     </style>
 </head>
 <body>
-
-<!-- ANIMATED INTRO LOGO WITH SMOKE -->
-<div class="intro-overlay">
-    <div class="intro-logo"><span>edited</span>byalee</div>
-</div>
 
 <nav>
     <a href="#" class="logo"><span>edited</span>byalee</a>
@@ -250,67 +184,7 @@
             <p class="sec-sub">Scroll-stopping content engineered for retention.</p>
         </div>
         <div class="port-grid">
-            <!-- 1. FITNESS -->
-            <a href="https://www.instagram.com/reel/DWtklYhEoT5/" target="_blank" class="port-card">
-                <div class="port-thumb">
-                    <video autoplay muted loop playsinline preload="metadata" poster="video1.jpg">
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                    <div class="views-tag" style="background:var(--grad)">Fitness</div>
-                </div>
-                <div class="port-info">
-                    <div class="port-type">High-Engagement</div>
-                    <h3>Fitness Brand Edit</h3>
-                    <p>Click to watch live on Instagram.</p>
-                </div>
-            </a>
-
-            <!-- 2. FASHION -->
-            <a href="#" target="_blank" class="port-card">
-                <div class="port-thumb">
-                    <video autoplay muted loop playsinline preload="metadata" poster="fashion.jpg">
-                        <source src="fashion.mp4" type="video/mp4">
-                    </video>
-                    <div class="views-tag">High-Ticket</div>
-                </div>
-                <div class="port-info">
-                    <div class="port-type">Fashion</div>
-                    <h3>Dynamic Fashion Reel</h3>
-                    <p>Fast-paced cuts with seamless transitions.</p>
-                </div>
-            </a>
-
-            <!-- 3. LAW NICHE 2 -->
-            <a href="#" target="_blank" class="port-card">
-                <div class="port-thumb">
-                    <video autoplay muted loop playsinline preload="metadata" poster="law3.jpg">
-                        <source src="law3.mp4" type="video/mp4">
-                    </video>
-                    <div class="views-tag">Business</div>
-                </div>
-                <div class="port-info">
-                    <div class="port-type">Strategic Brand</div>
-                    <h3>Strategic Brand Storytelling</h3>
-                    <p>Professional, trust-building edits.</p>
-                </div>
-            </a>
-
-            <!-- 4. REPURPOSING -->
-            <a href="#" target="_blank" class="port-card">
-                <div class="port-thumb">
-                    <video autoplay muted loop playsinline preload="metadata" poster="repurpos4.jpg">
-                        <source src="repurpos4.mp4" type="video/mp4">
-                    </video>
-                    <div class="views-tag">Repurposed</div>
-                </div>
-                <div class="port-info">
-                    <div class="port-type">Creator Strategy</div>
-                    <h3>Multi-Platform Repurposing</h3>
-                    <p>Optimized for TikTok, Reels, and Shorts.</p>
-                </div>
-            </a>
-
-            <!-- 5. STOCK MARKET TALKING HEAD -->
+            <!-- 1. STOCK MARKET (WAS 5TH) -->
             <a href="#" target="_blank" class="port-card">
                 <div class="port-thumb">
                     <video autoplay muted loop playsinline preload="metadata" poster="stockmarket.jpg">
@@ -325,22 +199,7 @@
                 </div>
             </a>
 
-            <!-- 6. MOTION DESIGN -->
-            <a href="#" target="_blank" class="port-card">
-                <div class="port-thumb">
-                    <video autoplay muted loop playsinline preload="metadata" poster="joseph6.jpg">
-                        <source src="joseph6.mp4" type="video/mp4">
-                    </video>
-                    <div class="views-tag">Motion Design</div>
-                </div>
-                <div class="port-info">
-                    <div class="port-type">VFX</div>
-                    <h3>Kinetic Typography Suite</h3>
-                    <p>Custom animated text tracking.</p>
-                </div>
-            </a>
-
-            <!-- 7. NARRATIVE -->
+            <!-- 2. NARRATIVE (WAS 7TH) -->
             <a href="#" target="_blank" class="port-card">
                 <div class="port-thumb">
                     <video autoplay muted loop playsinline preload="metadata" poster="joseph7.jpg">
@@ -355,7 +214,52 @@
                 </div>
             </a>
 
-            <!-- 8. MOTIVATION REEL -->
+            <!-- 3. REPURPOSING (WAS 4TH) -->
+            <a href="#" target="_blank" class="port-card">
+                <div class="port-thumb">
+                    <video autoplay muted loop playsinline preload="metadata" poster="repurpos4.jpg">
+                        <source src="repurpos4.mp4" type="video/mp4">
+                    </video>
+                    <div class="views-tag">Repurposed</div>
+                </div>
+                <div class="port-info">
+                    <div class="port-type">Creator Strategy</div>
+                    <h3>Multi-Platform Repurposing</h3>
+                    <p>Optimized for TikTok, Reels, and Shorts.</p>
+                </div>
+            </a>
+
+            <!-- 4. MOTION DESIGN (WAS 6TH) -->
+            <a href="#" target="_blank" class="port-card">
+                <div class="port-thumb">
+                    <video autoplay muted loop playsinline preload="metadata" poster="joseph6.jpg">
+                        <source src="joseph6.mp4" type="video/mp4">
+                    </video>
+                    <div class="views-tag">Motion Design</div>
+                </div>
+                <div class="port-info">
+                    <div class="port-type">VFX</div>
+                    <h3>Kinetic Typography Suite</h3>
+                    <p>Custom animated text tracking.</p>
+                </div>
+            </a>
+
+            <!-- 5. FASHION (WAS 2ND) -->
+            <a href="#" target="_blank" class="port-card">
+                <div class="port-thumb">
+                    <video autoplay muted loop playsinline preload="metadata" poster="fashion.jpg">
+                        <source src="fashion.mp4" type="video/mp4">
+                    </video>
+                    <div class="views-tag">High-Ticket</div>
+                </div>
+                <div class="port-info">
+                    <div class="port-type">Fashion</div>
+                    <h3>Dynamic Fashion Reel</h3>
+                    <p>Fast-paced cuts with seamless transitions.</p>
+                </div>
+            </a>
+
+            <!-- 6. MOTIVATION (WAS 8TH) -->
             <a href="#" target="_blank" class="port-card">
                 <div class="port-thumb">
                     <video autoplay muted loop playsinline preload="metadata" poster="motivation.jpg">
@@ -370,7 +274,37 @@
                 </div>
             </a>
 
-            <!-- 9. BUSINESS SYSTEMS -->
+            <!-- 7. FITNESS (WAS 1ST) -->
+            <a href="https://www.instagram.com/reel/DWtklYhEoT5/" target="_blank" class="port-card">
+                <div class="port-thumb">
+                    <video autoplay muted loop playsinline preload="metadata" poster="video1.jpg">
+                        <source src="video1.mp4" type="video/mp4">
+                    </video>
+                    <div class="views-tag" style="background:var(--grad)">Fitness</div>
+                </div>
+                <div class="port-info">
+                    <div class="port-type">High-Engagement</div>
+                    <h3>Fitness Brand Edit</h3>
+                    <p>Click to watch live on Instagram.</p>
+                </div>
+            </a>
+
+            <!-- 8. LAW NICHE 2 (WAS 3RD) -->
+            <a href="#" target="_blank" class="port-card">
+                <div class="port-thumb">
+                    <video autoplay muted loop playsinline preload="metadata" poster="law3.jpg">
+                        <source src="law3.mp4" type="video/mp4">
+                    </video>
+                    <div class="views-tag">Business</div>
+                </div>
+                <div class="port-info">
+                    <div class="port-type">Strategic Brand</div>
+                    <h3>Strategic Brand Storytelling</h3>
+                    <p>Professional, trust-building edits.</p>
+                </div>
+            </a>
+
+            <!-- 9. BUSINESS SYSTEMS (KEPT AT END) -->
             <a href="#" target="_blank" class="port-card">
                 <div class="port-thumb">
                     <video autoplay muted loop playsinline preload="metadata" poster="youtube9.jpg">
@@ -558,11 +492,11 @@
                 <input type="text" name="instagram" placeholder="Instagram Handle (optional)">
                 <select name="service" required>
                     <option value="" disabled selected>What do you need? *</option>
-                    <option>Long → Short Repurposing</option>
-                    <option>Monthly Reels Package</option>
-                    <option>Animated Captions</option>
-                    <option>Faceless Content</option>
-                    <option>Other</option>
+                    <option>Founder/Executive Brand Scaling</option>
+                    <option>Podcast & Long-Form Repurposing</option>
+                    <option>Monthly Content Retainer</option>
+                    <option>Cinematic Brand Story / Ad</option>
+                    <option>Other / Custom Inquiry</option>
                 </select>
                 <textarea name="message" placeholder="Tell me about your content *" required></textarea>
                 <button type="submit" class="btn btn-p" style="align-self:flex-start"><i class="fas fa-paper-plane"></i> Send Message</button>
